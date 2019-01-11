@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BazaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="doktor">
+          <Key>
+            <PropertyRef Name="id_doktor" />
+          </Key>
+          <Property Name="id_doktor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="prezime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="titula" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="hospital">
+          <Key>
+            <PropertyRef Name="id_hospital" />
+          </Key>
+          <Property Name="id_hospital" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="maska">
+          <Key>
+            <PropertyRef Name="id_maska" />
+          </Key>
+          <Property Name="id_maska" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="modalitet">
+          <Key>
+            <PropertyRef Name="id_modalitet" />
+          </Key>
+          <Property Name="id_modalitet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="nvarchar" MaxLength="50" />
+          <Property Name="opis" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="nalaz">
+          <Key>
+            <PropertyRef Name="id_nalaz" />
+          </Key>
+          <Property Name="id_nalaz" Type="int" Nullable="false" />
+          <Property Name="id_modalitet" Type="int" Nullable="false" />
+          <Property Name="id_hospital" Type="int" Nullable="false" />
+          <Property Name="id_maska" Type="int" Nullable="false" />
+          <Property Name="id_doktor" Type="int" />
+          <Property Name="id_operater" Type="int" />
+          <Property Name="ime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="prezime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="datum_rodj" Type="date" />
+          <Property Name="datum_pregleda" Type="datetime" Nullable="false" />
+          <Property Name="napomena" Type="nvarchar(max)" />
+          <Property Name="nalaz_tekst" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nalazDefault">
+          <Key>
+            <PropertyRef Name="id_nalazDefault" />
+          </Key>
+          <Property Name="id_nalazDefault" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_modalitet" Type="int" Nullable="false" />
+          <Property Name="id_maska" Type="int" Nullable="false" />
+          <Property Name="naziv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tekst" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="operater">
+          <Key>
+            <PropertyRef Name="id_operater" />
+          </Key>
+          <Property Name="id_operater" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="prezime" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_nalaz_doktor">
+          <End Role="doktor" Type="Self.doktor" Multiplicity="0..1" />
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doktor">
+              <PropertyRef Name="id_doktor" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_doktor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalaz_hospital">
+          <End Role="hospital" Type="Self.hospital" Multiplicity="1" />
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospital">
+              <PropertyRef Name="id_hospital" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_hospital" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalaz_maska">
+          <End Role="maska" Type="Self.maska" Multiplicity="1" />
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="maska">
+              <PropertyRef Name="id_maska" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_maska" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalaz_modalitet">
+          <End Role="modalitet" Type="Self.modalitet" Multiplicity="1" />
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modalitet">
+              <PropertyRef Name="id_modalitet" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_modalitet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalaz_operater">
+          <End Role="operater" Type="Self.operater" Multiplicity="0..1" />
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="operater">
+              <PropertyRef Name="id_operater" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_operater" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalazDefault_maska">
+          <End Role="maska" Type="Self.maska" Multiplicity="1" />
+          <End Role="nalazDefault" Type="Self.nalazDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="maska">
+              <PropertyRef Name="id_maska" />
+            </Principal>
+            <Dependent Role="nalazDefault">
+              <PropertyRef Name="id_maska" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalazDefault_modalitet">
+          <End Role="modalitet" Type="Self.modalitet" Multiplicity="1" />
+          <End Role="nalazDefault" Type="Self.nalazDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modalitet">
+              <PropertyRef Name="id_modalitet" />
+            </Principal>
+            <Dependent Role="nalazDefault">
+              <PropertyRef Name="id_modalitet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BazaModelStoreContainer">
+          <EntitySet Name="doktor" EntityType="Self.doktor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hospital" EntityType="Self.hospital" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="maska" EntityType="Self.maska" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="modalitet" EntityType="Self.modalitet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nalaz" EntityType="Self.nalaz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nalazDefault" EntityType="Self.nalazDefault" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="operater" EntityType="Self.operater" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_nalaz_doktor" Association="Self.FK_nalaz_doktor">
+            <End Role="doktor" EntitySet="doktor" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalaz_hospital" Association="Self.FK_nalaz_hospital">
+            <End Role="hospital" EntitySet="hospital" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalaz_maska" Association="Self.FK_nalaz_maska">
+            <End Role="maska" EntitySet="maska" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalaz_modalitet" Association="Self.FK_nalaz_modalitet">
+            <End Role="modalitet" EntitySet="modalitet" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalaz_operater" Association="Self.FK_nalaz_operater">
+            <End Role="operater" EntitySet="operater" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalazDefault_maska" Association="Self.FK_nalazDefault_maska">
+            <End Role="maska" EntitySet="maska" />
+            <End Role="nalazDefault" EntitySet="nalazDefault" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalazDefault_modalitet" Association="Self.FK_nalazDefault_modalitet">
+            <End Role="modalitet" EntitySet="modalitet" />
+            <End Role="nalazDefault" EntitySet="nalazDefault" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="hospital">
+          <Key>
+            <PropertyRef Name="id_hospital" />
+          </Key>
+          <Property Name="id_hospital" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_hospital" FromRole="hospital" ToRole="nalaz" />
+        </EntityType>
+        <EntityType Name="maska">
+          <Key>
+            <PropertyRef Name="id_maska" />
+          </Key>
+          <Property Name="id_maska" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="nalazDefault" Relationship="Self.FK_nalazDefault_maska" FromRole="maska" ToRole="nalazDefault" />
+          <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_maska" FromRole="maska" ToRole="nalaz" />
+        </EntityType>
+        <EntityType Name="modalitet">
+          <Key>
+            <PropertyRef Name="id_modalitet" />
+          </Key>
+          <Property Name="id_modalitet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="opis" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="nalazDefault" Relationship="Self.FK_nalazDefault_modalitet" FromRole="modalitet" ToRole="nalazDefault" />
+          <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_modalitet" FromRole="modalitet" ToRole="nalaz" />
+        </EntityType>
+        <EntityType Name="nalazDefault">
+          <Key>
+            <PropertyRef Name="id_nalazDefault" />
+          </Key>
+          <Property Name="id_nalazDefault" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_modalitet" Type="Int32" Nullable="false" />
+          <Property Name="id_maska" Type="Int32" Nullable="false" />
+          <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tekst" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="maska" Relationship="Self.FK_nalazDefault_maska" FromRole="nalazDefault" ToRole="maska" />
+          <NavigationProperty Name="modalitet" Relationship="Self.FK_nalazDefault_modalitet" FromRole="nalazDefault" ToRole="modalitet" />
+        </EntityType>
+        <Association Name="FK_nalazDefault_maska">
+          <End Role="maska" Type="Self.maska" Multiplicity="1" />
+          <End Role="nalazDefault" Type="Self.nalazDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="maska">
+              <PropertyRef Name="id_maska" />
+            </Principal>
+            <Dependent Role="nalazDefault">
+              <PropertyRef Name="id_maska" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalazDefault_modalitet">
+          <End Role="modalitet" Type="Self.modalitet" Multiplicity="1" />
+          <End Role="nalazDefault" Type="Self.nalazDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modalitet">
+              <PropertyRef Name="id_modalitet" />
+            </Principal>
+            <Dependent Role="nalazDefault">
+              <PropertyRef Name="id_modalitet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="hospital" EntityType="Self.hospital" />
+          <EntitySet Name="maska" EntityType="Self.maska" />
+          <EntitySet Name="modalitet" EntityType="Self.modalitet" />
+          <EntitySet Name="nalazDefault" EntityType="Self.nalazDefault" />
+          <AssociationSet Name="FK_nalazDefault_maska" Association="Self.FK_nalazDefault_maska">
+            <End Role="maska" EntitySet="maska" />
+            <End Role="nalazDefault" EntitySet="nalazDefault" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalazDefault_modalitet" Association="Self.FK_nalazDefault_modalitet">
+            <End Role="modalitet" EntitySet="modalitet" />
+            <End Role="nalazDefault" EntitySet="nalazDefault" />
+          </AssociationSet>
+          <EntitySet Name="doktor" EntityType="BazaModel.doktor" />
+          <EntitySet Name="nalaz" EntityType="BazaModel.nalaz" />
+          <EntitySet Name="operater" EntityType="BazaModel.operater" />
+          <AssociationSet Name="FK_nalaz_doktor" Association="BazaModel.FK_nalaz_doktor">
+            <End Role="doktor" EntitySet="doktor" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalaz_hospital" Association="BazaModel.FK_nalaz_hospital">
+            <End Role="hospital" EntitySet="hospital" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalaz_maska" Association="BazaModel.FK_nalaz_maska">
+            <End Role="maska" EntitySet="maska" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalaz_modalitet" Association="BazaModel.FK_nalaz_modalitet">
+            <End Role="modalitet" EntitySet="modalitet" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalaz_operater" Association="BazaModel.FK_nalaz_operater">
+            <End Role="operater" EntitySet="operater" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="doktor">
+          <Key>
+            <PropertyRef Name="id_doktor" />
+          </Key>
+          <Property Name="id_doktor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="prezime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="titula" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_doktor" FromRole="doktor" ToRole="nalaz" />
+        </EntityType>
+        <EntityType Name="nalaz">
+          <Key>
+            <PropertyRef Name="id_nalaz" />
+          </Key>
+          <Property Name="id_nalaz" Type="Int32" Nullable="false" />
+          <Property Name="id_modalitet" Type="Int32" Nullable="false" />
+          <Property Name="id_hospital" Type="Int32" Nullable="false" />
+          <Property Name="id_maska" Type="Int32" Nullable="false" />
+          <Property Name="id_doktor" Type="Int32" />
+          <Property Name="id_operater" Type="Int32" />
+          <Property Name="ime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="prezime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="datum_rodj" Type="DateTime" Precision="0" />
+          <Property Name="datum_pregleda" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="napomena" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nalaz_tekst" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="doktor" Relationship="BazaModel.FK_nalaz_doktor" FromRole="nalaz" ToRole="doktor" />
+          <NavigationProperty Name="hospital" Relationship="BazaModel.FK_nalaz_hospital" FromRole="nalaz" ToRole="hospital" />
+          <NavigationProperty Name="maska" Relationship="BazaModel.FK_nalaz_maska" FromRole="nalaz" ToRole="maska" />
+          <NavigationProperty Name="modalitet" Relationship="BazaModel.FK_nalaz_modalitet" FromRole="nalaz" ToRole="modalitet" />
+          <NavigationProperty Name="operater" Relationship="BazaModel.FK_nalaz_operater" FromRole="nalaz" ToRole="operater" />
+        </EntityType>
+        <EntityType Name="operater">
+          <Key>
+            <PropertyRef Name="id_operater" />
+          </Key>
+          <Property Name="id_operater" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="prezime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_operater" FromRole="operater" ToRole="nalaz" />
+        </EntityType>
+        <Association Name="FK_nalaz_doktor">
+          <End Type="BazaModel.doktor" Role="doktor" Multiplicity="0..1" />
+          <End Type="BazaModel.nalaz" Role="nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doktor">
+              <PropertyRef Name="id_doktor" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_doktor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalaz_hospital">
+          <End Type="BazaModel.hospital" Role="hospital" Multiplicity="1" />
+          <End Type="BazaModel.nalaz" Role="nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospital">
+              <PropertyRef Name="id_hospital" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_hospital" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalaz_maska">
+          <End Type="BazaModel.maska" Role="maska" Multiplicity="1" />
+          <End Type="BazaModel.nalaz" Role="nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="maska">
+              <PropertyRef Name="id_maska" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_maska" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalaz_modalitet">
+          <End Type="BazaModel.modalitet" Role="modalitet" Multiplicity="1" />
+          <End Type="BazaModel.nalaz" Role="nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modalitet">
+              <PropertyRef Name="id_modalitet" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_modalitet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalaz_operater">
+          <End Type="BazaModel.operater" Role="operater" Multiplicity="0..1" />
+          <End Type="BazaModel.nalaz" Role="nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="operater">
+              <PropertyRef Name="id_operater" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="id_operater" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BazaModelStoreContainer" CdmEntityContainer="Database">
+          <EntitySetMapping Name="hospital">
+            <EntityTypeMapping TypeName="BazaModel.hospital">
+              <MappingFragment StoreEntitySet="hospital">
+                <ScalarProperty Name="id_hospital" ColumnName="id_hospital" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="maska">
+            <EntityTypeMapping TypeName="BazaModel.maska">
+              <MappingFragment StoreEntitySet="maska">
+                <ScalarProperty Name="id_maska" ColumnName="id_maska" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modalitet">
+            <EntityTypeMapping TypeName="BazaModel.modalitet">
+              <MappingFragment StoreEntitySet="modalitet">
+                <ScalarProperty Name="id_modalitet" ColumnName="id_modalitet" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nalazDefault">
+            <EntityTypeMapping TypeName="BazaModel.nalazDefault">
+              <MappingFragment StoreEntitySet="nalazDefault">
+                <ScalarProperty Name="id_nalazDefault" ColumnName="id_nalazDefault" />
+                <ScalarProperty Name="id_modalitet" ColumnName="id_modalitet" />
+                <ScalarProperty Name="id_maska" ColumnName="id_maska" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="tekst" ColumnName="tekst" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doktor">
+            <EntityTypeMapping TypeName="BazaModel.doktor">
+              <MappingFragment StoreEntitySet="doktor">
+                <ScalarProperty Name="titula" ColumnName="titula" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="id_doktor" ColumnName="id_doktor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nalaz">
+            <EntityTypeMapping TypeName="BazaModel.nalaz">
+              <MappingFragment StoreEntitySet="nalaz">
+                <ScalarProperty Name="nalaz_tekst" ColumnName="nalaz_tekst" />
+                <ScalarProperty Name="napomena" ColumnName="napomena" />
+                <ScalarProperty Name="datum_pregleda" ColumnName="datum_pregleda" />
+                <ScalarProperty Name="datum_rodj" ColumnName="datum_rodj" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="id_operater" ColumnName="id_operater" />
+                <ScalarProperty Name="id_doktor" ColumnName="id_doktor" />
+                <ScalarProperty Name="id_maska" ColumnName="id_maska" />
+                <ScalarProperty Name="id_hospital" ColumnName="id_hospital" />
+                <ScalarProperty Name="id_modalitet" ColumnName="id_modalitet" />
+                <ScalarProperty Name="id_nalaz" ColumnName="id_nalaz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="operater">
+            <EntityTypeMapping TypeName="BazaModel.operater">
+              <MappingFragment StoreEntitySet="operater">
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="id_operater" ColumnName="id_operater" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

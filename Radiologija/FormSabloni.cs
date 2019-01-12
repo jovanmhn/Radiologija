@@ -16,11 +16,24 @@ namespace Radiologija
         Database Baza { get; set; }
         nalazDefault nalazdefault { get; set; }
         bool isEdit { get; set; }
+        int id_modalitet { get; set; }
+        int id_maska { get; set; }
 
-        public FormSabloni()
+        public FormSabloni(bool _isEdit)
         {
             InitializeComponent();
             Baza = new Database();
+            modalitetBindingSource.DataSource = Baza.modalitet.ToList();
+            maskaBindingSource.DataSource = Baza.maska.ToList();
+            nalazdefault = new nalazDefault();
+            isEdit = _isEdit;
+            if (!isEdit)
+            {
+                labelControl3.Visible = lookUpEdit3.Visible = simpleButton1.Visible = false;
+                nalazdefault = new nalazDefault();
+
+                DefaultbindingSource.DataSource = nalazdefault;
+            }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -35,20 +48,12 @@ namespace Radiologija
                 lookUpEdit1.ErrorText = "Morate odabrati vrijednost!";
                 goto kraj;
             }
-            if(Baza.nalazDefault.FirstOrDefault(qq => qq.id_modalitet == (int)lookUpEdit1.EditValue && qq.id_maska == (int)lookUpEdit2.EditValue).id_nalazDefault != 0)
+            if(isEdit)
             {
-                nalazdefault = Baza.nalazDefault.FirstOrDefault(qq => qq.id_modalitet == (int)lookUpEdit1.EditValue && qq.id_maska == (int)lookUpEdit2.EditValue);
-                textEdit1.Text = nalazdefault.naziv;
-                richEditControl1.RtfText = Baza.nalazDefault.FirstOrDefault(qq => qq.id_modalitet == (int)lookUpEdit1.EditValue && qq.id_maska == (int)lookUpEdit2.EditValue).tekst ?? String.Empty;
-                isEdit = true;
-                DefaultbindingSource.DataSource = nalazdefault;
+                lookUpEdit3.Properties.DataSource = Baza.nalazDefault.Where(qq => qq.id_modalitet == (int)lookUpEdit1.EditValue && qq.id_maska == (int)lookUpEdit2.EditValue).ToList();
             }
-            else
-            {
-                nalazdefault = new nalazDefault();
-                isEdit = false;
-                DefaultbindingSource.DataSource = nalazdefault;
-            }
+            
+
 
             
 
@@ -58,12 +63,6 @@ namespace Radiologija
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(textEdit1.Text))
-            {
-                textEdit1.ErrorText = "Morate unijeti naslov";
-                goto kraj;
-                
-            }
             if (isEdit)
             {
                 try
@@ -75,16 +74,54 @@ namespace Radiologija
                     XtraMessageBox.Show(ex.Message,"Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     goto kraj;
                 }
-                XtraMessageBox.Show("Uspješno izmijenjen šablon.", "!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (XtraMessageBox.Show("Uspješno izmijenjen šablon.", "!", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    this.Close();
+                }
             }
             else
             {
+                try
+                {
+
+                    nalazdefault.id_modalitet = (int)lookUpEdit1.EditValue;
+                    nalazdefault.id_maska = (int)lookUpEdit2.EditValue;
+                    foreach(Binding X in DefaultbindingSource.CurrencyManager.Bindings)
+                    {
+                        X.WriteValue();
+                    }
+                    var test = textEdit1.Text;
+                    Baza.nalazDefault.Add(nalazdefault);
+                    Baza.SaveChanges();
+                    
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    goto kraj;
+                }
+                if(XtraMessageBox.Show("Šablon"+System.Environment.NewLine+nalazdefault.naziv+System.Environment.NewLine+"Uspješno dodat.", "!", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    this.Close();
+                }
 
             }
 
 
 
             kraj:;
+        }
+
+        private void lookUpEdit3_EditValueChanged(object sender, EventArgs e)
+        {
+            if (isEdit)
+            {
+                nalazdefault = Baza.nalazDefault.FirstOrDefault(qq => qq.id_nalazDefault == (int)lookUpEdit3.EditValue);
+                textEdit1.Text = nalazdefault.naziv;
+                richEditControl1.RtfText = nalazdefault.tekst;
+
+                DefaultbindingSource.DataSource = nalazdefault; 
+            }
         }
     }
 }

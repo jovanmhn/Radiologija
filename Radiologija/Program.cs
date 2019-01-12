@@ -17,8 +17,8 @@ namespace Radiologija
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
             Localizer.Active = new Lokalizator2000();
+            Application.Run(new FormMain());
         }
     }
 }

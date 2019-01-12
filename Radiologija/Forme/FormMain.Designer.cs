@@ -36,6 +36,11 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barToggleSwitchItem1 = new DevExpress.XtraBars.BarToggleSwitchItem();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItemDodajSablon = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemIzmijeniSablon = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -43,9 +48,10 @@
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -58,9 +64,13 @@
             this.barButtonItem3,
             this.barButtonItem4,
             this.barButtonItem5,
-            this.barButtonItem6});
+            this.barToggleSwitchItem1,
+            this.barStaticItem1,
+            this.barSubItem1,
+            this.barButtonItemDodajSablon,
+            this.barButtonItemIzmijeniSablon});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 7;
+            this.ribbonControl1.MaxItemId = 14;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -78,7 +88,7 @@
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "Lista nalaza";
+            this.barButtonItem2.Caption = "Arhiva";
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.ImageOptions.LargeImage = global::Radiologija.Properties.Resources.nalaz_lista32;
             this.barButtonItem2.Name = "barButtonItem2";
@@ -109,6 +119,49 @@
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
+            // barToggleSwitchItem1
+            // 
+            this.barToggleSwitchItem1.Caption = "Administratorski panel";
+            this.barToggleSwitchItem1.Id = 8;
+            this.barToggleSwitchItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barToggleSwitchItem1.ImageOptions.SvgImage")));
+            this.barToggleSwitchItem1.Name = "barToggleSwitchItem1";
+            this.barToggleSwitchItem1.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barToggleSwitchItem1_CheckedChanged);
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Id = 9;
+            this.barStaticItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barStaticItem1.ImageOptions.SvgImage")));
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "Šabloni";
+            this.barSubItem1.Id = 10;
+            this.barSubItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.Image")));
+            this.barSubItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.LargeImage")));
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemDodajSablon),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemIzmijeniSablon)});
+            this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItemDodajSablon
+            // 
+            this.barButtonItemDodajSablon.Caption = "Dodaj novi šablon";
+            this.barButtonItemDodajSablon.Id = 11;
+            this.barButtonItemDodajSablon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemDodajSablon.ImageOptions.Image")));
+            this.barButtonItemDodajSablon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemDodajSablon.ImageOptions.LargeImage")));
+            this.barButtonItemDodajSablon.Name = "barButtonItemDodajSablon";
+            this.barButtonItemDodajSablon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDodajSablon_ItemClick);
+            // 
+            // barButtonItemIzmijeniSablon
+            // 
+            this.barButtonItemIzmijeniSablon.Caption = "Izmijeni postojeći šablon";
+            this.barButtonItemIzmijeniSablon.Id = 12;
+            this.barButtonItemIzmijeniSablon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemIzmijeniSablon.ImageOptions.Image")));
+            this.barButtonItemIzmijeniSablon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemIzmijeniSablon.ImageOptions.LargeImage")));
+            this.barButtonItemIzmijeniSablon.Name = "barButtonItemIzmijeniSablon";
+            this.barButtonItemIzmijeniSablon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemIzmijeniSablon_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -130,18 +183,21 @@
             this.ribbonPageGroup2});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Administracija";
+            this.ribbonPage3.Visible = false;
             // 
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem5);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem6);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barSubItem1);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 636);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem1);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barToggleSwitchItem1);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 596);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1401, 31);
@@ -157,19 +213,24 @@
             this.xtraTabbedMdiManager1.MdiParent = this;
             this.xtraTabbedMdiManager1.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.False;
             // 
-            // barButtonItem6
+            // pictureBox1
             // 
-            this.barButtonItem6.Caption = "Šabloni";
-            this.barButtonItem6.Id = 6;
-            this.barButtonItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
-            this.barButtonItem6.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.Location = new System.Drawing.Point(0, 143);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1401, 453);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1401, 667);
+            this.ClientSize = new System.Drawing.Size(1401, 627);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -178,8 +239,10 @@
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "Main";
+            this.MdiChildActivate += new System.EventHandler(this.FormMain_MdiChildActivate);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +263,12 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarToggleSwitchItem barToggleSwitchItem1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemDodajSablon;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemIzmijeniSablon;
     }
 }
 

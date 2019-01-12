@@ -31,18 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSabloni));
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.modalitetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DefaultbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.maskaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.richEditControl1 = new DevExpress.XtraRichEdit.RichEditControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController(this.components);
             this.clipboardBar1 = new DevExpress.XtraRichEdit.UI.ClipboardBar();
             this.pasteItem1 = new DevExpress.XtraRichEdit.UI.PasteItem();
             this.cutItem1 = new DevExpress.XtraRichEdit.UI.CutItem();
@@ -50,7 +48,9 @@
             this.pasteSpecialItem1 = new DevExpress.XtraRichEdit.UI.PasteSpecialItem();
             this.fontBar1 = new DevExpress.XtraRichEdit.UI.FontBar();
             this.changeFontNameItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontNameItem();
+            this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
             this.changeFontSizeItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontSizeItem();
+            this.repositoryItemRichEditFontSizeEdit1 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit();
             this.fontSizeIncreaseItem1 = new DevExpress.XtraRichEdit.UI.FontSizeIncreaseItem();
             this.fontSizeDecreaseItem1 = new DevExpress.XtraRichEdit.UI.FontSizeDecreaseItem();
             this.toggleFontBoldItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontBoldItem();
@@ -70,8 +70,6 @@
             this.toggleTextCaseItem1 = new DevExpress.XtraRichEdit.UI.ToggleTextCaseItem();
             this.clearFormattingItem1 = new DevExpress.XtraRichEdit.UI.ClearFormattingItem();
             this.showFontFormItem1 = new DevExpress.XtraRichEdit.UI.ShowFontFormItem();
-            this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
-            this.repositoryItemRichEditFontSizeEdit1 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit();
             this.paragraphBar1 = new DevExpress.XtraRichEdit.UI.ParagraphBar();
             this.toggleBulletedListItem1 = new DevExpress.XtraRichEdit.UI.ToggleBulletedListItem();
             this.toggleNumberingListItem1 = new DevExpress.XtraRichEdit.UI.ToggleNumberingListItem();
@@ -96,55 +94,88 @@
             this.showParagraphFormItem1 = new DevExpress.XtraRichEdit.UI.ShowParagraphFormItem();
             this.stylesBar1 = new DevExpress.XtraRichEdit.UI.StylesBar();
             this.changeStyleItem1 = new DevExpress.XtraRichEdit.UI.ChangeStyleItem();
-            this.showEditStyleFormItem1 = new DevExpress.XtraRichEdit.UI.ShowEditStyleFormItem();
             this.repositoryItemRichEditStyleEdit1 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditStyleEdit();
+            this.showEditStyleFormItem1 = new DevExpress.XtraRichEdit.UI.ShowEditStyleFormItem();
             this.editingBar1 = new DevExpress.XtraRichEdit.UI.EditingBar();
             this.findItem1 = new DevExpress.XtraRichEdit.UI.FindItem();
             this.replaceItem1 = new DevExpress.XtraRichEdit.UI.ReplaceItem();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController(this.components);
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.DefaultbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.nalazDefaultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modalitetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DefaultbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DefaultbindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nalazDefaultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lookUpEdit1
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(91, 23);
+            this.lookUpEdit1.Location = new System.Drawing.Point(76, 24);
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("naziv", "naziv", 35, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.lookUpEdit1.Properties.DataSource = this.modalitetBindingSource;
+            this.lookUpEdit1.Properties.DisplayMember = "naziv";
             this.lookUpEdit1.Properties.NullText = "";
             this.lookUpEdit1.Properties.NullValuePrompt = "Odabrati modalitet";
             this.lookUpEdit1.Properties.NullValuePromptShowForEmptyValue = true;
+            this.lookUpEdit1.Properties.ShowHeader = false;
             this.lookUpEdit1.Properties.ShowNullValuePromptWhenFocused = true;
-            this.lookUpEdit1.Size = new System.Drawing.Size(175, 20);
+            this.lookUpEdit1.Properties.ValueMember = "id_modalitet";
+            this.lookUpEdit1.Size = new System.Drawing.Size(192, 20);
             this.lookUpEdit1.TabIndex = 0;
+            // 
+            // modalitetBindingSource
+            // 
+            this.modalitetBindingSource.DataSource = typeof(Radiologija.modalitet);
+            // 
+            // DefaultbindingSource
+            // 
+            this.DefaultbindingSource.DataSource = typeof(Radiologija.nalazDefault);
             // 
             // lookUpEdit2
             // 
-            this.lookUpEdit2.Location = new System.Drawing.Point(383, 23);
+            this.lookUpEdit2.Location = new System.Drawing.Point(354, 23);
             this.lookUpEdit2.Name = "lookUpEdit2";
             this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("naziv", "naziv", 35, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.lookUpEdit2.Properties.DataSource = this.maskaBindingSource;
+            this.lookUpEdit2.Properties.DisplayMember = "naziv";
             this.lookUpEdit2.Properties.NullText = "";
             this.lookUpEdit2.Properties.NullValuePrompt = "Odabrati masku";
             this.lookUpEdit2.Properties.NullValuePromptShowForEmptyValue = true;
+            this.lookUpEdit2.Properties.ShowHeader = false;
             this.lookUpEdit2.Properties.ShowNullValuePromptWhenFocused = true;
-            this.lookUpEdit2.Size = new System.Drawing.Size(175, 20);
+            this.lookUpEdit2.Properties.ValueMember = "id_maska";
+            this.lookUpEdit2.Size = new System.Drawing.Size(376, 20);
             this.lookUpEdit2.TabIndex = 1;
+            // 
+            // maskaBindingSource
+            // 
+            this.maskaBindingSource.DataSource = typeof(Radiologija.maska);
             // 
             // labelControl1
             // 
@@ -165,7 +196,7 @@
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(584, 21);
+            this.simpleButton1.Location = new System.Drawing.Point(749, 21);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
             this.simpleButton1.TabIndex = 4;
@@ -174,7 +205,8 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
@@ -183,20 +215,21 @@
             this.groupControl1.Controls.Add(this.barDockControlRight);
             this.groupControl1.Controls.Add(this.barDockControlBottom);
             this.groupControl1.Controls.Add(this.barDockControlTop);
-            this.groupControl1.Location = new System.Drawing.Point(1, 154);
+            this.groupControl1.Location = new System.Drawing.Point(2, 154);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1393, 472);
+            this.groupControl1.Size = new System.Drawing.Size(1392, 472);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Šablon";
             // 
             // richEditControl1
             // 
+            this.richEditControl1.DataBindings.Add(new System.Windows.Forms.Binding("RtfText", this.DefaultbindingSource, "tekst", true));
             this.richEditControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richEditControl1.Location = new System.Drawing.Point(2, 54);
             this.richEditControl1.MenuManager = this.barManager1;
             this.richEditControl1.Name = "richEditControl1";
             this.richEditControl1.Options.Printing.PrintPreviewFormKind = DevExpress.XtraRichEdit.PrintPreviewFormKind.Bars;
-            this.richEditControl1.Size = new System.Drawing.Size(1389, 416);
+            this.richEditControl1.Size = new System.Drawing.Size(1388, 416);
             this.richEditControl1.TabIndex = 0;
             // 
             // barManager1
@@ -269,92 +302,6 @@
             this.repositoryItemRichEditFontSizeEdit1,
             this.repositoryItemRichEditStyleEdit1});
             // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(2, 23);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1389, 31);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(2, 470);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1389, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(2, 54);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 416);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1391, 54);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 416);
-            // 
-            // richEditBarController1
-            // 
-            this.richEditBarController1.BarItems.Add(this.pasteItem1);
-            this.richEditBarController1.BarItems.Add(this.cutItem1);
-            this.richEditBarController1.BarItems.Add(this.copyItem1);
-            this.richEditBarController1.BarItems.Add(this.pasteSpecialItem1);
-            this.richEditBarController1.BarItems.Add(this.changeFontNameItem1);
-            this.richEditBarController1.BarItems.Add(this.changeFontSizeItem1);
-            this.richEditBarController1.BarItems.Add(this.fontSizeIncreaseItem1);
-            this.richEditBarController1.BarItems.Add(this.fontSizeDecreaseItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleFontBoldItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleFontItalicItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleFontUnderlineItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleFontDoubleUnderlineItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleFontStrikeoutItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleFontDoubleStrikeoutItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleFontSuperscriptItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleFontSubscriptItem1);
-            this.richEditBarController1.BarItems.Add(this.changeFontColorItem1);
-            this.richEditBarController1.BarItems.Add(this.changeFontHighlightColorItem1);
-            this.richEditBarController1.BarItems.Add(this.changeTextCaseItem1);
-            this.richEditBarController1.BarItems.Add(this.makeTextUpperCaseItem1);
-            this.richEditBarController1.BarItems.Add(this.makeTextLowerCaseItem1);
-            this.richEditBarController1.BarItems.Add(this.capitalizeEachWordCaseItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleTextCaseItem1);
-            this.richEditBarController1.BarItems.Add(this.clearFormattingItem1);
-            this.richEditBarController1.BarItems.Add(this.showFontFormItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleBulletedListItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleNumberingListItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleMultiLevelListItem1);
-            this.richEditBarController1.BarItems.Add(this.decreaseIndentItem1);
-            this.richEditBarController1.BarItems.Add(this.increaseIndentItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleParagraphAlignmentLeftItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleParagraphAlignmentCenterItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleParagraphAlignmentRightItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleParagraphAlignmentJustifyItem1);
-            this.richEditBarController1.BarItems.Add(this.toggleShowWhitespaceItem1);
-            this.richEditBarController1.BarItems.Add(this.changeParagraphLineSpacingItem1);
-            this.richEditBarController1.BarItems.Add(this.setSingleParagraphSpacingItem1);
-            this.richEditBarController1.BarItems.Add(this.setSesquialteralParagraphSpacingItem1);
-            this.richEditBarController1.BarItems.Add(this.setDoubleParagraphSpacingItem1);
-            this.richEditBarController1.BarItems.Add(this.showLineSpacingFormItem1);
-            this.richEditBarController1.BarItems.Add(this.addSpacingBeforeParagraphItem1);
-            this.richEditBarController1.BarItems.Add(this.removeSpacingBeforeParagraphItem1);
-            this.richEditBarController1.BarItems.Add(this.addSpacingAfterParagraphItem1);
-            this.richEditBarController1.BarItems.Add(this.removeSpacingAfterParagraphItem1);
-            this.richEditBarController1.BarItems.Add(this.changeParagraphBackColorItem1);
-            this.richEditBarController1.BarItems.Add(this.showParagraphFormItem1);
-            this.richEditBarController1.BarItems.Add(this.changeStyleItem1);
-            this.richEditBarController1.BarItems.Add(this.showEditStyleFormItem1);
-            this.richEditBarController1.BarItems.Add(this.findItem1);
-            this.richEditBarController1.BarItems.Add(this.replaceItem1);
-            this.richEditBarController1.Control = this.richEditControl1;
-            // 
             // clipboardBar1
             // 
             this.clipboardBar1.Control = this.richEditControl1;
@@ -418,11 +365,26 @@
             this.changeFontNameItem1.Id = 4;
             this.changeFontNameItem1.Name = "changeFontNameItem1";
             // 
+            // repositoryItemFontEdit1
+            // 
+            this.repositoryItemFontEdit1.AutoHeight = false;
+            this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
+            // 
             // changeFontSizeItem1
             // 
             this.changeFontSizeItem1.Edit = this.repositoryItemRichEditFontSizeEdit1;
             this.changeFontSizeItem1.Id = 5;
             this.changeFontSizeItem1.Name = "changeFontSizeItem1";
+            // 
+            // repositoryItemRichEditFontSizeEdit1
+            // 
+            this.repositoryItemRichEditFontSizeEdit1.AutoHeight = false;
+            this.repositoryItemRichEditFontSizeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemRichEditFontSizeEdit1.Control = this.richEditControl1;
+            this.repositoryItemRichEditFontSizeEdit1.Name = "repositoryItemRichEditFontSizeEdit1";
             // 
             // fontSizeIncreaseItem1
             // 
@@ -523,21 +485,6 @@
             // 
             this.showFontFormItem1.Id = 24;
             this.showFontFormItem1.Name = "showFontFormItem1";
-            // 
-            // repositoryItemFontEdit1
-            // 
-            this.repositoryItemFontEdit1.AutoHeight = false;
-            this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
-            // 
-            // repositoryItemRichEditFontSizeEdit1
-            // 
-            this.repositoryItemRichEditFontSizeEdit1.AutoHeight = false;
-            this.repositoryItemRichEditFontSizeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemRichEditFontSizeEdit1.Control = this.richEditControl1;
-            this.repositoryItemRichEditFontSizeEdit1.Name = "repositoryItemRichEditFontSizeEdit1";
             // 
             // paragraphBar1
             // 
@@ -690,11 +637,6 @@
             this.changeStyleItem1.Id = 46;
             this.changeStyleItem1.Name = "changeStyleItem1";
             // 
-            // showEditStyleFormItem1
-            // 
-            this.showEditStyleFormItem1.Id = 47;
-            this.showEditStyleFormItem1.Name = "showEditStyleFormItem1";
-            // 
             // repositoryItemRichEditStyleEdit1
             // 
             this.repositoryItemRichEditStyleEdit1.AutoHeight = false;
@@ -702,6 +644,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemRichEditStyleEdit1.Control = this.richEditControl1;
             this.repositoryItemRichEditStyleEdit1.Name = "repositoryItemRichEditStyleEdit1";
+            // 
+            // showEditStyleFormItem1
+            // 
+            this.showEditStyleFormItem1.Id = 47;
+            this.showEditStyleFormItem1.Name = "showEditStyleFormItem1";
             // 
             // editingBar1
             // 
@@ -723,16 +670,95 @@
             this.replaceItem1.Id = 49;
             this.replaceItem1.Name = "replaceItem1";
             // 
-            // textEdit1
+            // barDockControlTop
             // 
-            this.textEdit1.Location = new System.Drawing.Point(10, 33);
-            this.textEdit1.MenuManager = this.barManager1;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(545, 20);
-            this.textEdit1.TabIndex = 6;
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(2, 23);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1388, 31);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(2, 470);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1388, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(2, 54);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 416);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1390, 54);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 416);
+            // 
+            // richEditBarController1
+            // 
+            this.richEditBarController1.BarItems.Add(this.pasteItem1);
+            this.richEditBarController1.BarItems.Add(this.cutItem1);
+            this.richEditBarController1.BarItems.Add(this.copyItem1);
+            this.richEditBarController1.BarItems.Add(this.pasteSpecialItem1);
+            this.richEditBarController1.BarItems.Add(this.changeFontNameItem1);
+            this.richEditBarController1.BarItems.Add(this.changeFontSizeItem1);
+            this.richEditBarController1.BarItems.Add(this.fontSizeIncreaseItem1);
+            this.richEditBarController1.BarItems.Add(this.fontSizeDecreaseItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleFontBoldItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleFontItalicItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleFontUnderlineItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleFontDoubleUnderlineItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleFontStrikeoutItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleFontDoubleStrikeoutItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleFontSuperscriptItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleFontSubscriptItem1);
+            this.richEditBarController1.BarItems.Add(this.changeFontColorItem1);
+            this.richEditBarController1.BarItems.Add(this.changeFontHighlightColorItem1);
+            this.richEditBarController1.BarItems.Add(this.changeTextCaseItem1);
+            this.richEditBarController1.BarItems.Add(this.makeTextUpperCaseItem1);
+            this.richEditBarController1.BarItems.Add(this.makeTextLowerCaseItem1);
+            this.richEditBarController1.BarItems.Add(this.capitalizeEachWordCaseItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleTextCaseItem1);
+            this.richEditBarController1.BarItems.Add(this.clearFormattingItem1);
+            this.richEditBarController1.BarItems.Add(this.showFontFormItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleBulletedListItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleNumberingListItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleMultiLevelListItem1);
+            this.richEditBarController1.BarItems.Add(this.decreaseIndentItem1);
+            this.richEditBarController1.BarItems.Add(this.increaseIndentItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleParagraphAlignmentLeftItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleParagraphAlignmentCenterItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleParagraphAlignmentRightItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleParagraphAlignmentJustifyItem1);
+            this.richEditBarController1.BarItems.Add(this.toggleShowWhitespaceItem1);
+            this.richEditBarController1.BarItems.Add(this.changeParagraphLineSpacingItem1);
+            this.richEditBarController1.BarItems.Add(this.setSingleParagraphSpacingItem1);
+            this.richEditBarController1.BarItems.Add(this.setSesquialteralParagraphSpacingItem1);
+            this.richEditBarController1.BarItems.Add(this.setDoubleParagraphSpacingItem1);
+            this.richEditBarController1.BarItems.Add(this.showLineSpacingFormItem1);
+            this.richEditBarController1.BarItems.Add(this.addSpacingBeforeParagraphItem1);
+            this.richEditBarController1.BarItems.Add(this.removeSpacingBeforeParagraphItem1);
+            this.richEditBarController1.BarItems.Add(this.addSpacingAfterParagraphItem1);
+            this.richEditBarController1.BarItems.Add(this.removeSpacingAfterParagraphItem1);
+            this.richEditBarController1.BarItems.Add(this.changeParagraphBackColorItem1);
+            this.richEditBarController1.BarItems.Add(this.showParagraphFormItem1);
+            this.richEditBarController1.BarItems.Add(this.changeStyleItem1);
+            this.richEditBarController1.BarItems.Add(this.showEditStyleFormItem1);
+            this.richEditBarController1.BarItems.Add(this.findItem1);
+            this.richEditBarController1.BarItems.Add(this.replaceItem1);
+            this.richEditBarController1.Control = this.richEditControl1;
             // 
             // simpleButton2
             // 
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
@@ -743,27 +769,64 @@
             this.simpleButton2.Text = "Sačuvaj";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // groupControl2
+            // lookUpEdit3
             // 
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl2.AppearanceCaption.FontStyleDelta = System.Drawing.FontStyle.Bold;
-            this.groupControl2.AppearanceCaption.Options.UseFont = true;
-            this.groupControl2.Controls.Add(this.textEdit1);
-            this.groupControl2.Location = new System.Drawing.Point(2, 90);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(577, 64);
-            this.groupControl2.TabIndex = 9;
-            this.groupControl2.Text = "Naslov";
+            this.lookUpEdit3.Location = new System.Drawing.Point(98, 62);
+            this.lookUpEdit3.MenuManager = this.barManager1;
+            this.lookUpEdit3.Name = "lookUpEdit3";
+            this.lookUpEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit3.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("naziv", "naziv", 35, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.lookUpEdit3.Properties.DataSource = this.nalazDefaultBindingSource;
+            this.lookUpEdit3.Properties.DisplayMember = "naziv";
+            this.lookUpEdit3.Properties.NullText = "";
+            this.lookUpEdit3.Properties.NullValuePrompt = "Odabrati";
+            this.lookUpEdit3.Properties.NullValuePromptShowForEmptyValue = true;
+            this.lookUpEdit3.Properties.ShowNullValuePromptWhenFocused = true;
+            this.lookUpEdit3.Properties.ValueMember = "id_nalazDefault";
+            this.lookUpEdit3.Size = new System.Drawing.Size(632, 20);
+            this.lookUpEdit3.TabIndex = 9;
+            this.lookUpEdit3.EditValueChanged += new System.EventHandler(this.lookUpEdit3_EditValueChanged);
             // 
-            // DefaultbindingSource
+            // labelControl3
             // 
-            this.DefaultbindingSource.DataSource = typeof(Radiologija.nalazDefault);
+            this.labelControl3.Location = new System.Drawing.Point(22, 65);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(70, 13);
+            this.labelControl3.TabIndex = 10;
+            this.labelControl3.Text = "Naziv šablona:";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(39, 99);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(53, 13);
+            this.labelControl4.TabIndex = 11;
+            this.labelControl4.Text = "Novi naziv:";
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.DefaultbindingSource, "naziv", true));
+            this.textEdit1.Location = new System.Drawing.Point(98, 96);
+            this.textEdit1.MenuManager = this.barManager1;
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(632, 20);
+            this.textEdit1.TabIndex = 12;
+            // 
+            // nalazDefaultBindingSource
+            // 
+            this.nalazDefaultBindingSource.DataSource = typeof(Radiologija.nalazDefault);
             // 
             // FormSabloni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1394, 626);
+            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.lookUpEdit3);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.simpleButton1);
@@ -771,23 +834,24 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.lookUpEdit2);
             this.Controls.Add(this.lookUpEdit1);
-            this.Controls.Add(this.groupControl2);
             this.Name = "FormSabloni";
             this.Text = "FormSabloni";
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modalitetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DefaultbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DefaultbindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nalazDefaultBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -866,9 +930,14 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraRichEdit.UI.RichEditBarController richEditBarController1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
         private System.Windows.Forms.BindingSource DefaultbindingSource;
+        private System.Windows.Forms.BindingSource modalitetBindingSource;
+        private System.Windows.Forms.BindingSource maskaBindingSource;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit3;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private System.Windows.Forms.BindingSource nalazDefaultBindingSource;
     }
 }

@@ -221,6 +221,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\doktor.datasource" />
     <None Include="Properties\DataSources\maska.datasource" />
+    <None Include="Properties\DataSources\modalitet.datasource" />
     <None Include="Properties\DataSources\nalazDefault.datasource" />
     <None Include="Properties\DataSources\operater.datasource" />
     <None Include="Properties\Settings.settings">

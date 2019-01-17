@@ -93,7 +93,7 @@
             // 
             // coltitula
             // 
-            this.coltitula.Caption = "Titula";
+            this.coltitula.Caption = "Zvanje";
             this.coltitula.FieldName = "titula";
             this.coltitula.Name = "coltitula";
             this.coltitula.Visible = true;

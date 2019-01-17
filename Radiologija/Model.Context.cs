@@ -30,7 +30,8 @@ namespace Radiologija
         public virtual DbSet<modalitet> modalitet { get; set; }
         public virtual DbSet<nalazDefault> nalazDefault { get; set; }
         public virtual DbSet<doktor> doktor { get; set; }
-        public virtual DbSet<nalaz> nalaz { get; set; }
         public virtual DbSet<operater> operater { get; set; }
+        public virtual DbSet<nalaz> nalaz { get; set; }
+        public virtual DbSet<settings> settings { get; set; }
     }
 }

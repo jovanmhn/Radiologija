@@ -106,10 +106,10 @@
             this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController(this.components);
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
+            this.nalazDefaultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.nalazDefaultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modalitetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DefaultbindingSource)).BeginInit();
@@ -123,8 +123,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazDefaultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lookUpEdit1
@@ -789,6 +789,10 @@
             this.lookUpEdit3.TabIndex = 9;
             this.lookUpEdit3.EditValueChanged += new System.EventHandler(this.lookUpEdit3_EditValueChanged);
             // 
+            // nalazDefaultBindingSource
+            // 
+            this.nalazDefaultBindingSource.DataSource = typeof(Radiologija.nalazDefault);
+            // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(22, 65);
@@ -814,10 +818,6 @@
             this.textEdit1.Size = new System.Drawing.Size(632, 20);
             this.textEdit1.TabIndex = 12;
             // 
-            // nalazDefaultBindingSource
-            // 
-            this.nalazDefaultBindingSource.DataSource = typeof(Radiologija.nalazDefault);
-            // 
             // FormSabloni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -835,7 +835,7 @@
             this.Controls.Add(this.lookUpEdit2);
             this.Controls.Add(this.lookUpEdit1);
             this.Name = "FormSabloni";
-            this.Text = "FormSabloni";
+            this.Text = " FormSabloni";
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modalitetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DefaultbindingSource)).EndInit();
@@ -850,8 +850,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazDefaultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

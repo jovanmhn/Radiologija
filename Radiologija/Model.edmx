@@ -42,7 +42,7 @@
           <Key>
             <PropertyRef Name="id_nalaz" />
           </Key>
-          <Property Name="id_nalaz" Type="int" Nullable="false" />
+          <Property Name="id_nalaz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_modalitet" Type="int" Nullable="false" />
           <Property Name="id_hospital" Type="int" Nullable="false" />
           <Property Name="id_maska" Type="int" Nullable="false" />
@@ -72,6 +72,13 @@
           <Property Name="id_operater" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ime" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="prezime" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="settings">
+          <Key>
+            <PropertyRef Name="naziv" />
+          </Key>
+          <Property Name="naziv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="vrijednost" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_nalaz_doktor">
           <End Role="doktor" Type="Self.doktor" Multiplicity="0..1" />
@@ -165,6 +172,7 @@
           <EntitySet Name="nalaz" EntityType="Self.nalaz" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nalazDefault" EntityType="Self.nalazDefault" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="operater" EntityType="Self.operater" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="settings" EntityType="Self.settings" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_nalaz_doktor" Association="Self.FK_nalaz_doktor">
             <End Role="doktor" EntitySet="doktor" />
             <End Role="nalaz" EntitySet="nalaz" />
@@ -277,8 +285,8 @@
             <End Role="nalazDefault" EntitySet="nalazDefault" />
           </AssociationSet>
           <EntitySet Name="doktor" EntityType="BazaModel.doktor" />
-          <EntitySet Name="nalaz" EntityType="BazaModel.nalaz" />
           <EntitySet Name="operater" EntityType="BazaModel.operater" />
+          <EntitySet Name="nalaz" EntityType="BazaModel.nalaz" />
           <AssociationSet Name="FK_nalaz_doktor" Association="BazaModel.FK_nalaz_doktor">
             <End Role="doktor" EntitySet="doktor" />
             <End Role="nalaz" EntitySet="nalaz" />
@@ -299,7 +307,8 @@
             <End Role="operater" EntitySet="operater" />
             <End Role="nalaz" EntitySet="nalaz" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="settings" EntityType="BazaModel.settings" />
+          </EntityContainer>
         <EntityType Name="doktor">
           <Key>
             <PropertyRef Name="id_doktor" />
@@ -310,11 +319,20 @@
           <Property Name="titula" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_doktor" FromRole="doktor" ToRole="nalaz" />
         </EntityType>
+        <EntityType Name="operater">
+          <Key>
+            <PropertyRef Name="id_operater" />
+          </Key>
+          <Property Name="id_operater" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="prezime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_operater" FromRole="operater" ToRole="nalaz" />
+        </EntityType>
         <EntityType Name="nalaz">
           <Key>
             <PropertyRef Name="id_nalaz" />
           </Key>
-          <Property Name="id_nalaz" Type="Int32" Nullable="false" />
+          <Property Name="id_nalaz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_modalitet" Type="Int32" Nullable="false" />
           <Property Name="id_hospital" Type="Int32" Nullable="false" />
           <Property Name="id_maska" Type="Int32" Nullable="false" />
@@ -331,15 +349,6 @@
           <NavigationProperty Name="maska" Relationship="BazaModel.FK_nalaz_maska" FromRole="nalaz" ToRole="maska" />
           <NavigationProperty Name="modalitet" Relationship="BazaModel.FK_nalaz_modalitet" FromRole="nalaz" ToRole="modalitet" />
           <NavigationProperty Name="operater" Relationship="BazaModel.FK_nalaz_operater" FromRole="nalaz" ToRole="operater" />
-        </EntityType>
-        <EntityType Name="operater">
-          <Key>
-            <PropertyRef Name="id_operater" />
-          </Key>
-          <Property Name="id_operater" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="prezime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_operater" FromRole="operater" ToRole="nalaz" />
         </EntityType>
         <Association Name="FK_nalaz_doktor">
           <End Type="BazaModel.doktor" Role="doktor" Multiplicity="0..1" />
@@ -401,7 +410,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="settings">
+          <Key>
+            <PropertyRef Name="naziv" />
+          </Key>
+          <Property Name="naziv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vrijednost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -455,6 +471,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="operater">
+            <EntityTypeMapping TypeName="BazaModel.operater">
+              <MappingFragment StoreEntitySet="operater">
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="id_operater" ColumnName="id_operater" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="nalaz">
             <EntityTypeMapping TypeName="BazaModel.nalaz">
               <MappingFragment StoreEntitySet="nalaz">
@@ -473,12 +498,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="operater">
-            <EntityTypeMapping TypeName="BazaModel.operater">
-              <MappingFragment StoreEntitySet="operater">
-                <ScalarProperty Name="prezime" ColumnName="prezime" />
-                <ScalarProperty Name="ime" ColumnName="ime" />
-                <ScalarProperty Name="id_operater" ColumnName="id_operater" />
+          <EntitySetMapping Name="settings">
+            <EntityTypeMapping TypeName="BazaModel.settings">
+              <MappingFragment StoreEntitySet="settings">
+                <ScalarProperty Name="vrijednost" ColumnName="vrijednost" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

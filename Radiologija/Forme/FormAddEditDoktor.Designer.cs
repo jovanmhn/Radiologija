@@ -68,11 +68,11 @@
             // titulaLabel
             // 
             titulaLabel.AutoSize = true;
-            titulaLabel.Location = new System.Drawing.Point(28, 67);
+            titulaLabel.Location = new System.Drawing.Point(16, 67);
             titulaLabel.Name = "titulaLabel";
-            titulaLabel.Size = new System.Drawing.Size(37, 13);
+            titulaLabel.Size = new System.Drawing.Size(44, 13);
             titulaLabel.TabIndex = 4;
-            titulaLabel.Text = "Titula:";
+            titulaLabel.Text = "Zvanje:";
             // 
             // imeTextEdit
             // 

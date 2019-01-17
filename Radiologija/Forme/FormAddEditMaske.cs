@@ -32,6 +32,7 @@ namespace Radiologija
             InitializeComponent();
             Baza = new Database();
             isEdit = true;
+            maska = _maska;
             MaskeBindingSource.DataSource = Baza.maska.FirstOrDefault(qq=> qq.id_maska == _maska.id_maska);
         }
 
@@ -39,12 +40,12 @@ namespace Radiologija
         {
             try
             {
-                if (isEdit)
+                if (isEdit && validateime(maska))
                 {
                     Baza.SaveChanges();
                     this.DialogResult = DialogResult.OK;
                 }
-                else
+                if(!isEdit && validateime())
                 {
                     Baza.maska.Add(maska);
                     Baza.SaveChanges();
@@ -55,6 +56,28 @@ namespace Radiologija
             {
                 XtraMessageBox.Show("Došlo je do greške prilikom čuvanja podataka." + Environment.NewLine + ex.Message, "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public bool validateime()
+        {
+            var db = new Database();
+            List<string> lista = db.maska.Select(qq=> qq.naziv).ToList();
+            if (lista.Contains(maska.naziv))
+            {
+                XtraMessageBox.Show("Već postoji maska sa tim imenom!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        public bool validateime(maska maska)
+        {
+            var db = new Database();
+            List<string> lista = db.maska.Where(qq=> qq.id_maska != maska.id_maska).Select(qq => qq.naziv).ToList();
+            if (lista.Contains(Baza.maska.FirstOrDefault(qq => qq.id_maska == maska.id_maska).naziv))
+            {
+                XtraMessageBox.Show("Već postoji maska sa tim imenom!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -5,21 +5,22 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c941e05bfded46f6b5d6bf5fc2361ddf" Name="Diagram1">
-        <EntityTypeShape EntityType="BazaModel.hospital" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BazaModel.maska" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BazaModel.modalitet" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BazaModel.nalazDefault" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaModel.hospital" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaModel.maska" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaModel.modalitet" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaModel.nalazDefault" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
         <AssociationConnector Association="BazaModel.FK_nalazDefault_maska" ManuallyRouted="false" />
         <AssociationConnector Association="BazaModel.FK_nalazDefault_modalitet" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="BazaModel.doktor" Width="1.5" PointX="4.875" PointY="6.375" />
-        <EntityTypeShape EntityType="BazaModel.nalaz" Width="1.5" PointX="7.125" PointY="2.5" />
-        <EntityTypeShape EntityType="BazaModel.operater" Width="1.5" PointX="10.5" PointY="4.125" />
+        <EntityTypeShape EntityType="BazaModel.doktor" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="BazaModel.operater" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BazaModel.nalaz" Width="1.5" PointX="3" PointY="3.625" />
         <AssociationConnector Association="BazaModel.FK_nalaz_doktor" />
         <AssociationConnector Association="BazaModel.FK_nalaz_hospital" />
         <AssociationConnector Association="BazaModel.FK_nalaz_maska" />
         <AssociationConnector Association="BazaModel.FK_nalaz_modalitet" />
         <AssociationConnector Association="BazaModel.FK_nalaz_operater" />
-      </Diagram>
+        <EntityTypeShape EntityType="BazaModel.settings" Width="1.5" PointX="6.375" PointY="0.75" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

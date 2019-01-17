@@ -18,6 +18,8 @@ namespace Radiologija
         {
             InitializeComponent();
             this.IsMdiContainer = true;
+            Radiologija.Helper.mainforma = this;
+            
         }
 
 
@@ -70,7 +72,20 @@ namespace Radiologija
 
         private void barToggleSwitchItem1_CheckedChanged(object sender, ItemClickEventArgs e)
         {
-            ribbonPage3.Visible = barToggleSwitchItem1.Checked;
+            if (barToggleSwitchItem1.Checked == false) ribbonPage3.Visible = false;
+            else
+            {
+                FormPassCheck frm = new FormPassCheck();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    ribbonPage3.Visible = true;
+                }
+                else
+                {
+                    barToggleSwitchItem1.Checked = false;
+                }
+            }
+            
         }
 
         private void CheckMdi()
@@ -103,13 +118,15 @@ namespace Radiologija
 
         private void barButtonItemDodajSablon_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (this.MdiChildren.Any(qq => qq.GetType() == typeof(FormSabloni)))
+            if (this.MdiChildren.Any(qq => qq.GetType() == typeof(FormSabloni) && qq.Tag.ToString() == "Sablon_novi"))
             {
-                this.MdiChildren.First(qq => qq.GetType() == typeof(FormSabloni)).Activate();
+                this.MdiChildren.First(qq => qq.GetType() == typeof(FormSabloni) && qq.Tag.ToString() == "Sablon_novi").Activate();
             }
             else
             {
                 FormSabloni frm = new FormSabloni(false);
+                frm.Tag = "Sablon_novi";
+                frm.Text = "Novi obrazac";
                 frm.MdiParent = this;
                 frm.Show();
             }
@@ -117,13 +134,68 @@ namespace Radiologija
 
         private void barButtonItemIzmijeniSablon_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (this.MdiChildren.Any(qq => qq.GetType() == typeof(FormSabloni)))
+            if (this.MdiChildren.Any(qq => qq.GetType() == typeof(FormSabloni) && qq.Tag.ToString() == "Sablon_edit"))
             {
-                this.MdiChildren.First(qq => qq.GetType() == typeof(FormSabloni)).Activate();
+                this.MdiChildren.First(qq => qq.GetType() == typeof(FormSabloni) && qq.Tag.ToString() == "Sablon_edit").Activate();
             }
             else
             {
                 FormSabloni frm = new FormSabloni(true);
+                frm.Tag = "Sablon_edit";
+                frm.Text = "Izmjena obrasca";
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (this.MdiChildren.Any(qq => qq.GetType() == typeof(FormAddEditNalaz)))
+            {
+                this.MdiChildren.First(qq => qq.GetType() == typeof(FormAddEditNalaz)).Activate();
+            }
+            else
+            {
+                FormAddEditNalaz frm = new FormAddEditNalaz();
+                frm.Text = "Novi nalaz";
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (this.MdiChildren.Any(qq => qq.GetType() == typeof(FormArhiva)))
+            {
+                this.MdiChildren.First(qq => qq.GetType() == typeof(FormArhiva)).Activate();
+            }
+            else
+            {
+                FormArhiva frm = new FormArhiva();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            var db = new Database();
+            if (!String.IsNullOrEmpty(db.settings.FirstOrDefault(qq => qq.naziv == "theme").vrijednost))
+            {
+                DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = db.settings.FirstOrDefault((qq => qq.naziv == "theme")).vrijednost;
+            }
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (this.MdiChildren.Any(qq => qq.GetType() == typeof(FormSettings)))
+            {
+                this.MdiChildren.First(qq => qq.GetType() == typeof(FormSettings)).Activate();
+            }
+            else
+            {
+                FormSettings frm = new FormSettings();
+                frm.Text = "Podešavanja";
                 frm.MdiParent = this;
                 frm.Show();
             }

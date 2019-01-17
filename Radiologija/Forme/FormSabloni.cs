@@ -74,7 +74,7 @@ namespace Radiologija
                     XtraMessageBox.Show(ex.Message,"Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     goto kraj;
                 }
-                if (XtraMessageBox.Show("Uspješno izmijenjen šablon.", "!", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                if (XtraMessageBox.Show("Uspješno izmijenjen obrazac.", "!", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.Close();
                 }
@@ -100,7 +100,7 @@ namespace Radiologija
                     XtraMessageBox.Show(ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     goto kraj;
                 }
-                if(XtraMessageBox.Show("Šablon"+System.Environment.NewLine+nalazdefault.naziv+System.Environment.NewLine+"Uspješno dodat.", "!", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                if(XtraMessageBox.Show("Obrazac"+System.Environment.NewLine+nalazdefault.naziv+System.Environment.NewLine+"Uspješno dodat.", "!", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.Close();
                 }

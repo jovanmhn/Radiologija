@@ -41,6 +41,7 @@
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemDodajSablon = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemIzmijeniSablon = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemListaObrazaca = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -72,9 +73,10 @@
             this.barSubItem1,
             this.barButtonItemDodajSablon,
             this.barButtonItemIzmijeniSablon,
-            this.barButtonItem6});
+            this.barButtonItem6,
+            this.barButtonItemListaObrazaca});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 15;
+            this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -151,7 +153,8 @@
             this.barSubItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.LargeImage")));
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemDodajSablon),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemIzmijeniSablon)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemIzmijeniSablon),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemListaObrazaca)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // barButtonItemDodajSablon
@@ -171,6 +174,15 @@
             this.barButtonItemIzmijeniSablon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemIzmijeniSablon.ImageOptions.LargeImage")));
             this.barButtonItemIzmijeniSablon.Name = "barButtonItemIzmijeniSablon";
             this.barButtonItemIzmijeniSablon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemIzmijeniSablon_ItemClick);
+            // 
+            // barButtonItemListaObrazaca
+            // 
+            this.barButtonItemListaObrazaca.Caption = "Lista obrazaca";
+            this.barButtonItemListaObrazaca.Id = 15;
+            this.barButtonItemListaObrazaca.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemListaObrazaca.ImageOptions.Image")));
+            this.barButtonItemListaObrazaca.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemListaObrazaca.ImageOptions.LargeImage")));
+            this.barButtonItemListaObrazaca.Name = "barButtonItemListaObrazaca";
+            this.barButtonItemListaObrazaca.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemListaObrazaca_ItemClick);
             // 
             // barButtonItem6
             // 
@@ -263,7 +275,7 @@
             this.Name = "FormMain";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
-            this.Text = "Radiologija";
+            this.Text = "Institut za bolesti djece";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.MdiChildActivate += new System.EventHandler(this.FormMain_MdiChildActivate);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
@@ -297,6 +309,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemIzmijeniSablon;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemListaObrazaca;
     }
 }
 

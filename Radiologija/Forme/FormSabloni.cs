@@ -35,6 +35,20 @@ namespace Radiologija
                 DefaultbindingSource.DataSource = nalazdefault;
             }
         }
+        public FormSabloni (nalazDefault _nalaz)
+        {
+            InitializeComponent();
+            Baza = new Database();
+            modalitetBindingSource.DataSource = Baza.modalitet.ToList();
+            maskaBindingSource.DataSource = Baza.maska.ToList();
+            nalazdefault = Baza.nalazDefault.FirstOrDefault(qq => qq.id_nalazDefault == _nalaz.id_nalazDefault);
+            DefaultbindingSource.DataSource = Baza.nalazDefault.FirstOrDefault(qq => qq.id_nalazDefault == _nalaz.id_nalazDefault);
+            labelControl3.Visible = lookUpEdit3.Visible = simpleButton1.Visible = false;
+            isEdit = true;
+            lookUpEdit1.EditValue = _nalaz.id_modalitet;
+            lookUpEdit2.EditValue = _nalaz.id_maska;
+
+        }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -67,6 +81,8 @@ namespace Radiologija
             {
                 try
                 {
+                    nalazdefault.id_modalitet = (int)lookUpEdit1.EditValue;
+                    nalazdefault.id_maska = (int)lookUpEdit2.EditValue;
                     Baza.SaveChanges();
                 }
                 catch (Exception ex)

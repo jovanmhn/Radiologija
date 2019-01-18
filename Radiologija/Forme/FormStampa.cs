@@ -55,8 +55,8 @@ namespace Radiologija
             report.Parameters["Ime"].Value = nalaz.ime;
             report.Parameters["Prezime"].Value = nalaz.prezime;
             report.Parameters["Modalitet"].Value = nalaz.modalitet.naziv;
-            report.Parameters["operater"].Value = nalaz.operater.info_naziv;
-            report.Parameters["doktor"].Value = nalaz.doktor.info_naziv;
+            report.Parameters["operater"].Value = (nalaz.operater != null) ? nalaz.operater.info_naziv : "";
+            report.Parameters["doktor"].Value = (nalaz.doktor!= null) ? nalaz.doktor.info_naziv : "";
             report.Parameters["napomena"].Value = nalaz.napomena;
             if (String.IsNullOrWhiteSpace(nalaz.napomena))
             {
@@ -73,6 +73,7 @@ namespace Radiologija
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             ReportPrintTool printtool = new ReportPrintTool(report);
+            
             printtool.PrintDialog();
         }
     }

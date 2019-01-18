@@ -200,5 +200,20 @@ namespace Radiologija
                 frm.Show();
             }
         }
+
+        private void barButtonItemListaObrazaca_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (this.MdiChildren.Any(qq => qq.GetType() == typeof(FormListaSablona)))
+            {
+                this.MdiChildren.First(qq => qq.GetType() == typeof(FormListaSablona)).Activate();
+            }
+            else
+            {
+                FormListaSablona frm = new FormListaSablona();
+                frm.Text = "Lista obrazaca";
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
     }
 }

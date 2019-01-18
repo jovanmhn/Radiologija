@@ -180,6 +180,12 @@
     <Compile Include="Forme\FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormListaSablona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListaSablona.Designer.cs">
+      <DependentUpon>FormListaSablona.cs</DependentUpon>
+    </Compile>
     <Compile Include="hospital.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListaSablona.resx">
+      <DependentUpon>FormListaSablona.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -62,7 +62,7 @@
           <Property Name="id_nalazDefault" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_modalitet" Type="int" Nullable="false" />
           <Property Name="id_maska" Type="int" Nullable="false" />
-          <Property Name="naziv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="naziv" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="tekst" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="operater">
@@ -222,8 +222,8 @@
           <Property Name="id_maska" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="opis" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="nalazDefault" Relationship="Self.FK_nalazDefault_maska" FromRole="maska" ToRole="nalazDefault" />
           <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_maska" FromRole="maska" ToRole="nalaz" />
+          <NavigationProperty Name="nalazDefault" Relationship="BazaModel.FK_nalazDefault_maska" FromRole="maska" ToRole="nalazDefault" />
         </EntityType>
         <EntityType Name="modalitet">
           <Key>
@@ -232,58 +232,13 @@
           <Property Name="id_modalitet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="opis" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="nalazDefault" Relationship="Self.FK_nalazDefault_modalitet" FromRole="modalitet" ToRole="nalazDefault" />
           <NavigationProperty Name="nalaz" Relationship="BazaModel.FK_nalaz_modalitet" FromRole="modalitet" ToRole="nalaz" />
+          <NavigationProperty Name="nalazDefault" Relationship="BazaModel.FK_nalazDefault_modalitet" FromRole="modalitet" ToRole="nalazDefault" />
         </EntityType>
-        <EntityType Name="nalazDefault">
-          <Key>
-            <PropertyRef Name="id_nalazDefault" />
-          </Key>
-          <Property Name="id_nalazDefault" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_modalitet" Type="Int32" Nullable="false" />
-          <Property Name="id_maska" Type="Int32" Nullable="false" />
-          <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="tekst" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="maska" Relationship="Self.FK_nalazDefault_maska" FromRole="nalazDefault" ToRole="maska" />
-          <NavigationProperty Name="modalitet" Relationship="Self.FK_nalazDefault_modalitet" FromRole="nalazDefault" ToRole="modalitet" />
-        </EntityType>
-        <Association Name="FK_nalazDefault_maska">
-          <End Role="maska" Type="Self.maska" Multiplicity="1" />
-          <End Role="nalazDefault" Type="Self.nalazDefault" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="maska">
-              <PropertyRef Name="id_maska" />
-            </Principal>
-            <Dependent Role="nalazDefault">
-              <PropertyRef Name="id_maska" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_nalazDefault_modalitet">
-          <End Role="modalitet" Type="Self.modalitet" Multiplicity="1" />
-          <End Role="nalazDefault" Type="Self.nalazDefault" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="modalitet">
-              <PropertyRef Name="id_modalitet" />
-            </Principal>
-            <Dependent Role="nalazDefault">
-              <PropertyRef Name="id_modalitet" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Database" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="hospital" EntityType="Self.hospital" />
           <EntitySet Name="maska" EntityType="Self.maska" />
           <EntitySet Name="modalitet" EntityType="Self.modalitet" />
-          <EntitySet Name="nalazDefault" EntityType="Self.nalazDefault" />
-          <AssociationSet Name="FK_nalazDefault_maska" Association="Self.FK_nalazDefault_maska">
-            <End Role="maska" EntitySet="maska" />
-            <End Role="nalazDefault" EntitySet="nalazDefault" />
-          </AssociationSet>
-          <AssociationSet Name="FK_nalazDefault_modalitet" Association="Self.FK_nalazDefault_modalitet">
-            <End Role="modalitet" EntitySet="modalitet" />
-            <End Role="nalazDefault" EntitySet="nalazDefault" />
-          </AssociationSet>
           <EntitySet Name="doktor" EntityType="BazaModel.doktor" />
           <EntitySet Name="operater" EntityType="BazaModel.operater" />
           <EntitySet Name="nalaz" EntityType="BazaModel.nalaz" />
@@ -308,6 +263,15 @@
             <End Role="nalaz" EntitySet="nalaz" />
           </AssociationSet>
           <EntitySet Name="settings" EntityType="BazaModel.settings" />
+          <EntitySet Name="nalazDefault" EntityType="BazaModel.nalazDefault" />
+          <AssociationSet Name="FK_nalazDefault_maska" Association="BazaModel.FK_nalazDefault_maska">
+            <End Role="maska" EntitySet="maska" />
+            <End Role="nalazDefault" EntitySet="nalazDefault" />
+          </AssociationSet>
+          <AssociationSet Name="FK_nalazDefault_modalitet" Association="BazaModel.FK_nalazDefault_modalitet">
+            <End Role="modalitet" EntitySet="modalitet" />
+            <End Role="nalazDefault" EntitySet="nalazDefault" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="doktor">
           <Key>
@@ -417,6 +381,42 @@
           <Property Name="naziv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="vrijednost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="nalazDefault">
+          <Key>
+            <PropertyRef Name="id_nalazDefault" />
+          </Key>
+          <Property Name="id_nalazDefault" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_modalitet" Type="Int32" Nullable="false" />
+          <Property Name="id_maska" Type="Int32" Nullable="false" />
+          <Property Name="naziv" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tekst" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="maska" Relationship="BazaModel.FK_nalazDefault_maska" FromRole="nalazDefault" ToRole="maska" />
+          <NavigationProperty Name="modalitet" Relationship="BazaModel.FK_nalazDefault_modalitet" FromRole="nalazDefault" ToRole="modalitet" />
+        </EntityType>
+        <Association Name="FK_nalazDefault_maska">
+          <End Type="BazaModel.maska" Role="maska" Multiplicity="1" />
+          <End Type="BazaModel.nalazDefault" Role="nalazDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="maska">
+              <PropertyRef Name="id_maska" />
+            </Principal>
+            <Dependent Role="nalazDefault">
+              <PropertyRef Name="id_maska" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_nalazDefault_modalitet">
+          <End Type="BazaModel.modalitet" Role="modalitet" Multiplicity="1" />
+          <End Type="BazaModel.nalazDefault" Role="nalazDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modalitet">
+              <PropertyRef Name="id_modalitet" />
+            </Principal>
+            <Dependent Role="nalazDefault">
+              <PropertyRef Name="id_modalitet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -447,17 +447,6 @@
                 <ScalarProperty Name="id_modalitet" ColumnName="id_modalitet" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
                 <ScalarProperty Name="opis" ColumnName="opis" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="nalazDefault">
-            <EntityTypeMapping TypeName="BazaModel.nalazDefault">
-              <MappingFragment StoreEntitySet="nalazDefault">
-                <ScalarProperty Name="id_nalazDefault" ColumnName="id_nalazDefault" />
-                <ScalarProperty Name="id_modalitet" ColumnName="id_modalitet" />
-                <ScalarProperty Name="id_maska" ColumnName="id_maska" />
-                <ScalarProperty Name="naziv" ColumnName="naziv" />
-                <ScalarProperty Name="tekst" ColumnName="tekst" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -503,6 +492,17 @@
               <MappingFragment StoreEntitySet="settings">
                 <ScalarProperty Name="vrijednost" ColumnName="vrijednost" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nalazDefault">
+            <EntityTypeMapping TypeName="BazaModel.nalazDefault">
+              <MappingFragment StoreEntitySet="nalazDefault">
+                <ScalarProperty Name="tekst" ColumnName="tekst" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="id_maska" ColumnName="id_maska" />
+                <ScalarProperty Name="id_modalitet" ColumnName="id_modalitet" />
+                <ScalarProperty Name="id_nalazDefault" ColumnName="id_nalazDefault" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

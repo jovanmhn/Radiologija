@@ -17,8 +17,8 @@ namespace Radiologija
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public maska()
         {
-            this.nalazDefault = new HashSet<nalazDefault>();
             this.nalaz = new HashSet<nalaz>();
+            this.nalazDefault = new HashSet<nalazDefault>();
         }
     
         public int id_maska { get; set; }
@@ -26,8 +26,8 @@ namespace Radiologija
         public string opis { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<nalazDefault> nalazDefault { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<nalaz> nalaz { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<nalazDefault> nalazDefault { get; set; }
     }
 }

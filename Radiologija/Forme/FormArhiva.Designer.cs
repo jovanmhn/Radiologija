@@ -215,6 +215,7 @@
             this.colnapomena.Caption = "Napomena";
             this.colnapomena.ColumnEdit = this.repositoryItemMemoEdit1;
             this.colnapomena.FieldName = "napomena";
+            this.colnapomena.MaxWidth = 250;
             this.colnapomena.Name = "colnapomena";
             this.colnapomena.Visible = true;
             this.colnapomena.VisibleIndex = 10;

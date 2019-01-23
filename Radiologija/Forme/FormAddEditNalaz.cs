@@ -97,7 +97,9 @@ namespace Radiologija
                     Baza.SaveChanges();
                     if(XtraMessageBox.Show("Uspješno sačuvan nalaz."+Environment.NewLine+"Štampati nalaz?", "Novi nalaz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        simpleButtonPrint.PerformClick();
+                        var db = new Database();                        
+                        FormStampa frm = new FormStampa(db.nalaz.FirstOrDefault(qq => qq.id_nalaz == nalaz.id_nalaz));
+                        //simpleButtonPrint.PerformClick();
                     }
                 }
             }
@@ -156,8 +158,10 @@ namespace Radiologija
                 {
                     X.WriteValue();
                 }
-                FormStampa frm = new FormStampa(nalaz, Baza.hospital.First(qq => qq.id_hospital == (int)lookUpEditHospital.EditValue).naziv, Baza.modalitet.First(qq => qq.id_modalitet == (int)lookUpEditModalitet.EditValue).naziv, Baza.operater.First(qq => qq.id_operater == (int)lookUpEditOperater.EditValue).info_naziv, Baza.doktor.First(qq => qq.id_doktor == (int)lookUpEditDoktor.EditValue).info_naziv);
-                frm.ShowDialog();
+                var db = new Database();
+                //FormStampa frm = new FormStampa(nalaz, Baza.hospital.First(qq => qq.id_hospital == (int)lookUpEditHospital.EditValue).naziv, Baza.modalitet.First(qq => qq.id_modalitet == (int)lookUpEditModalitet.EditValue).naziv, Baza.operater.First(qq => qq.id_operater == (int)lookUpEditOperater.EditValue).info_naziv, Baza.doktor.First(qq => qq.id_doktor == (int)lookUpEditDoktor.EditValue).info_naziv);
+                FormStampa frm = new FormStampa(db.nalaz.FirstOrDefault(qq => qq.id_nalaz == nalaz.id_nalaz));
+                //frm.ShowDialog();
             }
             catch (Exception ex)
             {

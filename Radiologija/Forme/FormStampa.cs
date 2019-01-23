@@ -35,12 +35,16 @@ namespace Radiologija
                 report.Napomena_label.Visible = false;
                 report.Napomena_label2.Visible = false;
             }
+            
             report.CreateDocument();
             
-            
-            documentViewer1.DocumentSource = report;
+            ReportPrintTool printtool = new ReportPrintTool(report);
+            printtool.ShowRibbonPreview();
 
-            documentViewer1.Refresh();
+
+            //documentViewer1.DocumentSource = report;
+
+            //documentViewer1.Refresh();
             
         }
         public FormStampa(nalaz nalaz)
@@ -63,18 +67,25 @@ namespace Radiologija
                 report.Napomena_label.Visible = false;
                 report.Napomena_label2.Visible = false;
             }
+            //report.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 0);
             report.CreateDocument();
 
-            documentViewer1.DocumentSource = report;
+            ReportPrintTool printtool = new ReportPrintTool(report);
+            
+            printtool.ShowRibbonPreview();
+            this.Close();
 
-            documentViewer1.Refresh();
+
+            //documentViewer1.DocumentSource = report;
+
+            //documentViewer1.Refresh();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             ReportPrintTool printtool = new ReportPrintTool(report);
-            
-            printtool.PrintDialog();
+            printtool.ShowRibbonPreview();
+            //printtool.PrintDialog();
         }
     }
 }

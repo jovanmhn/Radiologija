@@ -1006,10 +1006,11 @@
             // simpleButtonPrint
             // 
             this.simpleButtonPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonPrint.ImageOptions.Image")));
-            this.simpleButtonPrint.Location = new System.Drawing.Point(1297, 20);
+            this.simpleButtonPrint.Location = new System.Drawing.Point(1190, 20);
             this.simpleButtonPrint.Name = "simpleButtonPrint";
             this.simpleButtonPrint.Size = new System.Drawing.Size(42, 39);
             this.simpleButtonPrint.TabIndex = 1;
+            this.simpleButtonPrint.Visible = false;
             this.simpleButtonPrint.Click += new System.EventHandler(this.simpleButtonPrint_Click);
             // 
             // simpleButtonSave
@@ -1017,7 +1018,7 @@
             this.simpleButtonSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.simpleButtonSave.Appearance.Options.UseFont = true;
             this.simpleButtonSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonSave.ImageOptions.Image")));
-            this.simpleButtonSave.Location = new System.Drawing.Point(1190, 20);
+            this.simpleButtonSave.Location = new System.Drawing.Point(1238, 20);
             this.simpleButtonSave.Name = "simpleButtonSave";
             this.simpleButtonSave.Size = new System.Drawing.Size(101, 39);
             this.simpleButtonSave.TabIndex = 0;

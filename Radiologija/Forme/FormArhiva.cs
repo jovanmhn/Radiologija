@@ -138,7 +138,7 @@ namespace Radiologija
         {
             var row = (nalaz)gridView1.GetRow(gridView1.FocusedRowHandle);
             FormStampa frm = new FormStampa(row);
-            frm.ShowDialog();
+            //frm.ShowDialog();
         }
     }
 }

@@ -18,4 +18,9 @@ namespace Radiologija
         public string info_naziv { get { return this.titula + " " + this.ime + " " + this.prezime; } }
     }
 
+    public partial class nalaz
+    {
+        public string info_datum { get { return this.datum_pregleda.ToString("dd.MM.yyyy.") + " | " + this.datum_pregleda.Hour + "h" + ":" + this.datum_pregleda.Minute + "m"; } }
+    }
+
 }

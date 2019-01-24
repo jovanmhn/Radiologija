@@ -33,7 +33,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid_nalaz = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_modalitet = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_hospital = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid_maska = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -89,7 +88,6 @@
             this.gridView1.Appearance.HeaderPanel.FontStyleDelta = System.Drawing.FontStyle.Bold;
             this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid_nalaz,
             this.colid_modalitet,
             this.colid_hospital,
             this.colid_maska,
@@ -103,21 +101,12 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
             this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
-            // 
-            // colid_nalaz
-            // 
-            this.colid_nalaz.AppearanceCell.Options.UseTextOptions = true;
-            this.colid_nalaz.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colid_nalaz.Caption = "Broj";
-            this.colid_nalaz.FieldName = "id_nalaz";
-            this.colid_nalaz.Name = "colid_nalaz";
-            this.colid_nalaz.Visible = true;
-            this.colid_nalaz.VisibleIndex = 0;
-            this.colid_nalaz.Width = 48;
             // 
             // colid_modalitet
             // 
@@ -127,7 +116,7 @@
             this.colid_modalitet.FieldName = "modalitet.naziv";
             this.colid_modalitet.Name = "colid_modalitet";
             this.colid_modalitet.Visible = true;
-            this.colid_modalitet.VisibleIndex = 4;
+            this.colid_modalitet.VisibleIndex = 3;
             this.colid_modalitet.Width = 79;
             // 
             // colid_hospital
@@ -138,7 +127,7 @@
             this.colid_hospital.FieldName = "hospital.naziv";
             this.colid_hospital.Name = "colid_hospital";
             this.colid_hospital.Visible = true;
-            this.colid_hospital.VisibleIndex = 6;
+            this.colid_hospital.VisibleIndex = 5;
             this.colid_hospital.Width = 116;
             // 
             // colid_maska
@@ -149,7 +138,7 @@
             this.colid_maska.FieldName = "maska.naziv";
             this.colid_maska.Name = "colid_maska";
             this.colid_maska.Visible = true;
-            this.colid_maska.VisibleIndex = 7;
+            this.colid_maska.VisibleIndex = 6;
             this.colid_maska.Width = 116;
             // 
             // colid_doktor
@@ -158,7 +147,7 @@
             this.colid_doktor.FieldName = "doktor.info_naziv";
             this.colid_doktor.Name = "colid_doktor";
             this.colid_doktor.Visible = true;
-            this.colid_doktor.VisibleIndex = 8;
+            this.colid_doktor.VisibleIndex = 7;
             this.colid_doktor.Width = 116;
             // 
             // colid_operater
@@ -167,7 +156,7 @@
             this.colid_operater.FieldName = "operater.info_naziv";
             this.colid_operater.Name = "colid_operater";
             this.colid_operater.Visible = true;
-            this.colid_operater.VisibleIndex = 9;
+            this.colid_operater.VisibleIndex = 8;
             this.colid_operater.Width = 116;
             // 
             // colime
@@ -176,7 +165,7 @@
             this.colime.FieldName = "ime";
             this.colime.Name = "colime";
             this.colime.Visible = true;
-            this.colime.VisibleIndex = 1;
+            this.colime.VisibleIndex = 0;
             this.colime.Width = 116;
             // 
             // colprezime
@@ -185,7 +174,7 @@
             this.colprezime.FieldName = "prezime";
             this.colprezime.Name = "colprezime";
             this.colprezime.Visible = true;
-            this.colprezime.VisibleIndex = 2;
+            this.colprezime.VisibleIndex = 1;
             this.colprezime.Width = 116;
             // 
             // coldatum_rodj
@@ -196,7 +185,7 @@
             this.coldatum_rodj.FieldName = "datum_rodj";
             this.coldatum_rodj.Name = "coldatum_rodj";
             this.coldatum_rodj.Visible = true;
-            this.coldatum_rodj.VisibleIndex = 3;
+            this.coldatum_rodj.VisibleIndex = 2;
             this.coldatum_rodj.Width = 116;
             // 
             // coldatum_pregleda
@@ -207,7 +196,7 @@
             this.coldatum_pregleda.FieldName = "datum_pregleda";
             this.coldatum_pregleda.Name = "coldatum_pregleda";
             this.coldatum_pregleda.Visible = true;
-            this.coldatum_pregleda.VisibleIndex = 5;
+            this.coldatum_pregleda.VisibleIndex = 4;
             this.coldatum_pregleda.Width = 116;
             // 
             // colnapomena
@@ -218,7 +207,7 @@
             this.colnapomena.MaxWidth = 250;
             this.colnapomena.Name = "colnapomena";
             this.colnapomena.Visible = true;
-            this.colnapomena.VisibleIndex = 10;
+            this.colnapomena.VisibleIndex = 9;
             this.colnapomena.Width = 140;
             // 
             // repositoryItemMemoEdit1
@@ -393,7 +382,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.BindingSource nalazBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colid_nalaz;
         private DevExpress.XtraGrid.Columns.GridColumn colid_modalitet;
         private DevExpress.XtraGrid.Columns.GridColumn colid_hospital;
         private DevExpress.XtraGrid.Columns.GridColumn colid_maska;

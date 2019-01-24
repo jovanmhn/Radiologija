@@ -21,8 +21,8 @@ namespace Radiologija
             report = new XtraReport1();
             
             report.Parameters["nalaz"].Value = nalaz.nalaz_tekst;
-            report.Parameters["datum_pregled"].Value = nalaz.datum_pregleda.ToString("dd.MM.yyyy, HH:mm");
-            report.Parameters["Datum_rodj"].Value = (nalaz.datum_rodj != null) ? nalaz.datum_rodj.Value.ToString("dd.MM.yyyy") : "";
+            report.Parameters["datum_pregled"].Value = nalaz.datum_pregleda.ToString("dd.MM.yyyy., HH:mm");
+            report.Parameters["Datum_rodj"].Value = (nalaz.datum_rodj != null) ? nalaz.datum_rodj.Value.ToString("dd.MM.yyyy.") : "";
             report.Parameters["hospital"].Value = hospital;
             report.Parameters["Ime"].Value = nalaz.ime;
             report.Parameters["Prezime"].Value = nalaz.prezime;
@@ -53,8 +53,9 @@ namespace Radiologija
             report = new XtraReport1();
 
             report.Parameters["nalaz"].Value = nalaz.nalaz_tekst;
-            report.Parameters["datum_pregled"].Value = nalaz.datum_pregleda.ToString("dd.MM.yyyy, HH:mm");
-            report.Parameters["Datum_rodj"].Value = (nalaz.datum_rodj != null) ? nalaz.datum_rodj.Value.ToString("dd.MM.yyyy") : "";
+            //report.Parameters["datum_pregled"].Value = nalaz.datum_pregleda.ToString("dd.MM.yyyy.  HH:mm");
+            report.Parameters["datum_pregled"].Value = nalaz.info_datum;
+            report.Parameters["Datum_rodj"].Value = (nalaz.datum_rodj != null) ? nalaz.datum_rodj.Value.ToString("dd.MM.yyyy.") : "";
             report.Parameters["hospital"].Value = nalaz.hospital.naziv;
             report.Parameters["Ime"].Value = nalaz.ime;
             report.Parameters["Prezime"].Value = nalaz.prezime;

@@ -89,7 +89,15 @@ namespace Radiologija
                 {
 
                     Baza.SaveChanges();
-                    XtraMessageBox.Show("Sačuvano", "Izmjena", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //XtraMessageBox.Show("Sačuvano", "Izmjena", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (XtraMessageBox.Show("Uspješno izmijenjen nalaz." + Environment.NewLine + "Štampati nalaz?", "Novi nalaz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        this.Close();
+                        var db = new Database();
+                        FormStampa frm = new FormStampa(db.nalaz.FirstOrDefault(qq => qq.id_nalaz == nalaz.id_nalaz));
+                        //simpleButtonPrint.PerformClick();
+                    }
+                    this.Close();
                 }
                 if (!isEdit && validate())
                 {
@@ -97,10 +105,12 @@ namespace Radiologija
                     Baza.SaveChanges();
                     if(XtraMessageBox.Show("Uspješno sačuvan nalaz."+Environment.NewLine+"Štampati nalaz?", "Novi nalaz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        this.Close();
                         var db = new Database();                        
                         FormStampa frm = new FormStampa(db.nalaz.FirstOrDefault(qq => qq.id_nalaz == nalaz.id_nalaz));
                         //simpleButtonPrint.PerformClick();
                     }
+                    this.Close();
                 }
             }
             catch (Exception ex)

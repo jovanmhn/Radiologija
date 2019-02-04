@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Jovan2\source\repos\Radiologija\Radiologija\Model.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\ABACUS\Projects\Radiologija\Radiologija\Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

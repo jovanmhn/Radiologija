@@ -116,8 +116,8 @@
             // 
             // xrPictureBox1
             // 
+            this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
             this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.MiddleCenter;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(34.375F, 28.75F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(136.4583F, 100F);
@@ -555,7 +555,6 @@
             // 
             // Datum_rodj
             // 
-            this.Datum_rodj.AllowNull = true;
             this.Datum_rodj.Description = "Parameter1";
             this.Datum_rodj.Name = "Datum_rodj";
             this.Datum_rodj.Visible = false;
